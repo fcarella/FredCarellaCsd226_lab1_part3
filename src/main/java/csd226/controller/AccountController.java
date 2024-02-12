@@ -8,37 +8,40 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AccountController {
     @PostMapping("/signup")
-    public ResponseEntity<String> createAccount(@RequestBody Account signUpFormData){
+   public ResponseEntity<String> createAccount(@RequestBody Account signUpFormData){
         return ResponseEntity.ok("createAccount() : "+signUpFormData.getEmail());
     }
     @GetMapping("/signin")
     public ResponseEntity<String> getSignin(){ // map a URL to a method
-        String s="<form hx-post=\"/signin\" hx-target=\"this\" hx-swap=\"outerHTML\">\n" +
-                "    <div>\n" +
-                "        <label>First Name</label>\n" +
-                "        <input type=\"text\" name=\"firstname\" value=\"Joe\">\n" +
-                "    </div>\n" +
-                "    <div class=\"form-group\">\n" +
-                "        <label>Last Name</label>\n" +
-                "        <input type=\"text\" name=\"lastname\" value=\"Blow\">\n" +
-                "    </div>\n" +
-                "    <div class=\"form-group\">\n" +
-                "        <label>Email Address</label>\n" +
-                "        <input type=\"email\" name=\"email\" value=\"joe@blow.com\">\n" +
-                "    </div>\n" +
-                "    <div class=\"form-group\">\n" +
-                "        <label>Password</label>\n" +
-                "        <input type=\"password\" name=\"password\" value=\"xxxxx\">\n" +
-                "    </div>\n" +
-                "    <div class=\"form-group\">\n" +
-                "        <label>Confirm Password</label>\n" +
-                "        <input type=\"password\" name=\"confirmPassword\" value=\"xxxxx\">\n" +
-                "    </div>\n" +
-                "    <button class=\"btn\">Submit</button>\n" +
-                "    <button class=\"btn\" hx-get=\"/signin\">Cancel</button>\n" +
+        String s="<form hx-post=\"/signin\" hx-target=\"this\" hx-swap=\"outerHTML\">" +
+                "    <div>" +
+                "        <label>First Name</label>" +
+                "        <input type=\"text\" name=\"firstname\" value=\"Joe\">" +
+                "    </div>" +
+                "    <div class=\"form-group\">" +
+                "        <label>Last Name</label>" +
+                "        <input type=\"text\" name=\"lastname\" value=\"Blow\">" +
+                "    </div>" +
+                "    <div class=\"form-group\">" +
+                "        <label>Email Address</label>" +
+                "        <input type=\"email\" name=\"email\" value=\"joe@blow.com\">" +
+                "    </div>" +
+                "    <div class=\"form-group\">" +
+                "        <label>Password</label>" +
+                "        <input type=\"password\" name=\"password\" value=\"xxxxx\">" +
+                "    </div>" +
+                "    <div class=\"form-group\">" +
+                "        <label>Confirm Password</label>" +
+                "        <input type=\"password\" name=\"confirmPassword\" value=\"xxxxx\">" +
+                "    </div>" +
+                "    <button class=\"btn\">Submit</button>" +
+                "    <button class=\"btn\" hx-get=\"/signin\">Cancel</button>" +
                 "</form>";
         return ResponseEntity.ok(s);
     }
+
+
+
 
     // just here for reference: call it with http://localhost:8080/signup2?email=f.c@g.c
     @GetMapping("/signup2")
